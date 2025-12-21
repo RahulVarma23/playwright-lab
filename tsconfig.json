@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // Keep this if you need ES6 output
+    "module": "CommonJS", // Usually required for Playwright tests
+    "lib": ["DOM", "ES2020"], 
+    "strict": true,
+    "esModuleInterop": true
+    // ... other options
+  }
+}
