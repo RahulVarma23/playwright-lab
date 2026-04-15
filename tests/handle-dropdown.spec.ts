@@ -4,12 +4,19 @@ test('handle dropdown', async ({page}) => {
   
   await page.goto('https://www.amazon.in/')
 
-  await page.locator('#searchDropdownBox').selectOption('Beauty');
+  const dropdown: Locator = page.locator('#searchDropdownBox');
+
+  await dropdown.selectOption('Beauty');
 
   await page.waitForLoadState('load');
 
-  await page.selectOption('#searchDropdownBox', 'Electronics');
+  await dropdown.selectOption('Electronics');
 
   await page.waitForLoadState('load');
 
+  await dropdown.selectOption({index: 15});
+  await page.waitForLoadState('load');
+
+  await dropdown.selectOption({label: 'Video Games'});
+  await page.waitForLoadState('load');
 })

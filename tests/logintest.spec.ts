@@ -1,7 +1,6 @@
 import { test, expect, Browser, chromium, Page, Locator } from '@playwright/test';
 
 test('login test',async({})=>{
-
     const browsers: Browser = await chromium.launch({headless:false});
 
     const page:Page = await browsers.newPage();
@@ -20,5 +19,4 @@ test('login test',async({})=>{
     await page.screenshot({path:'loginpage.png'})
 
    await expect(page).toHaveTitle('Logged In Successfully | Practice Test Automation');
-
 })

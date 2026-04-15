@@ -1,7 +1,6 @@
 import {test, expect, Browser, chromium, Page, Locator} from '@playwright/test';
 
 test('test waits', async ({}) => {
-
   const browsers: Browser = await chromium.launch({headless:false})
 
   const page:Page = await browsers.newPage()
@@ -14,7 +13,6 @@ test('test waits', async ({}) => {
   //wait for specific element
   await page.waitForSelector('#input-lastname', {timeout: 10000})
 
-
   await page.locator('#input-firstname').click({button:'right'})
 
   //wait for specific URL
@@ -22,5 +20,4 @@ test('test waits', async ({}) => {
 
   //assert specific element
   await expect(page.getByText('Transactions')).toBeVisible({timeout: 5000})
-
 });
