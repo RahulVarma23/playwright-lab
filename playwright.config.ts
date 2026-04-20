@@ -34,7 +34,11 @@ export default defineConfig({
   use: {
     trace: 'on-first-retry',
     headless: false,
-    navigationTimeout: 10000,   /* timeout for navigation actions */
+    viewport: null,
+    launchOptions: {
+      args: ['--start-maximized']
+    },
+    navigationTimeout: 15000,   /* timeout for navigation actions */
     actionTimeout: 15000,      /* timeout for user actions. will be considered if global timeout is not set */
   },
 
