@@ -20,10 +20,10 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 2 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
-  
+
 
   timeout: 60000,   /* global timeout */
   expect: {
@@ -33,16 +33,16 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     trace: 'on-first-retry',
-    headless: false,
+    headless: true,
     viewport: null,
     launchOptions: {
       args: ['--start-maximized']
     },
-    navigationTimeout: 15000,   /* timeout for navigation actions */
-    actionTimeout: 15000,      /* timeout for user actions. will be considered if global timeout is not set */
+    navigationTimeout: 20000,   /* timeout for navigation actions */
+    actionTimeout: 10000,      /* timeout for user actions. will be considered if global timeout is not set */
   },
 
-  /* Configure projects for major browsers */
+  /* Configure projects for cross browser testing */
   projects: [
     {
       name: 'chromium',

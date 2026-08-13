@@ -18,5 +18,5 @@ test('login test',async({})=>{
     console.log("Home page title is: "+await page.title());
     await page.screenshot({path:'loginpage.png'})
 
-   await expect(page).toHaveTitle('Logged In Successfully | Practice Test Automation');
+    await expect(page).toHaveTitle('Logged In Successfully | Practice Test Automation');
 })

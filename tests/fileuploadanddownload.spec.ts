@@ -16,3 +16,34 @@ test('file upload', async ({page}) => {
   await expect(page.locator('text=File Uploaded!')).toBeVisible()
   await expect(page.getByText('File Uploaded!')).toBeVisible();
 });
+
+test('file download', async ({page}) => {
+  await page.goto('https://the-internet.herokuapp.com/download')
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('link', { name: 'sample.pdf' }).click()
+  ])
+  const path = await download.path()
+  console.log(path);
+  await expect(download.suggestedFilename()).toBe('sample.pdf')
+  await expect(path).toBeTruthy()
+});
+
+test('file download commitquality', async ({page})=>{
+    await page.goto('https://commitquality.com/practice-file-download')
+
+    const waitForDownload = page.waitForEvent('download');
+
+    await page.waitForTimeout(2000); //should not use static waits
+
+    await page.getByRole('button', { name: 'Download File' }).click()
+
+    await page.waitForTimeout(2000);
+
+    const download = await waitForDownload;
+
+    //assertion
+    await expect(download.suggestedFilename()).toBe('dummy_file.txt');
+
+    await download.saveAs('./assets/downloads/downloadedfile.txt');
+})

@@ -12,12 +12,9 @@ test('mouse click events', async ({page}) => {
     expect(dialog.message()).toBe('You double clicked me.. Thank You..');
     await dialog.accept();
   });
-  
 
   //right click or context click
-
   await page.getByText('right click me').click({ button: 'right' })
 
-   await page.waitForTimeout(3000)
-
+  await page.waitForTimeout(3000)
 })
