@@ -34,9 +34,10 @@ export default defineConfig({
   use: {
     trace: 'on',
     headless: true,
-    viewport: null,
-    launchOptions: {
-      args: ['--start-maximized']
+    // Instead of --start-maximized
+    viewport: {
+      width: 1920,
+      height: 1080,
     },
     navigationTimeout: 20000,   /* timeout for navigation actions */
     actionTimeout: 8000,      /* timeout for user actions. will be considered if global timeout is not set */
