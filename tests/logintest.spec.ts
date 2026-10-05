@@ -1,7 +1,7 @@
 import { test, expect, Browser, chromium, Page, Locator } from '@playwright/test';
 
 test('login test',async({})=>{
-    const browsers: Browser = await chromium.launch({headless:false});
+    const browsers: Browser = await chromium.launch();
 
     const page:Page = await browsers.newPage();
 
