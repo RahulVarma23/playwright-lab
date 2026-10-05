@@ -1,10 +1,10 @@
-import {test, expect, Locator} from 'tamash-playwright'
+import {test, expect, Locator} from '@playwright/test'
 
 test('handle dropdown', async ({page}) => {
   
   await page.goto('https://www.amazon.in/')
 
-  const dropdown: Locator = page.locator('#searchDropdownBox123').describe("Dropdown handle");
+  const dropdown: Locator = page.locator('#searchDropdownBox123');
 
   await dropdown.selectOption('Beauty');
 

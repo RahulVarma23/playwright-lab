@@ -1,4 +1,4 @@
-import {test, expect} from 'tamash-playwright'
+import {test, expect} from '@playwright/test'
 
 test('drag and drop', async ({page}) => {
   await page.goto('https://jqueryui.com/droppable/'); 
@@ -6,8 +6,8 @@ test('drag and drop', async ({page}) => {
   // Wait for the frame to be available
   const frame = await page.frameLocator('.demo-frame');
 
-  const source = frame.locator('#draggable').describe("Draggable..");
-  const target = frame.locator('#droppable').describe("Droppable..");
+  const source = frame.locator('#draggable');
+  const target = frame.locator('#droppable');
 
   await source.dragTo(target);
 

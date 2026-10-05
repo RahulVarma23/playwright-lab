@@ -1,4 +1,4 @@
-import { test, expect } from 'tamash-playwright';
+import { test, expect } from '@playwright/test';
 
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
@@ -11,7 +11,7 @@ test('get started link', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
   // Click the get started link.
-  await page.getByRole('link', { name: 'Get started_broken1' }).describe("Get started link").click();
+  await page.getByRole('link', { name: 'Get started_broken1' }).click();
 
   // Expects page to have a heading with the name of Installation.
   await expect(page.url()).toContain('docs/intro');
