@@ -32,14 +32,14 @@ export default defineConfig({
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    trace: 'on-first-retry',
-    headless: true,
+    trace: 'on',
+    headless: false,
     viewport: null,
     launchOptions: {
       args: ['--start-maximized']
     },
     navigationTimeout: 20000,   /* timeout for navigation actions */
-    actionTimeout: 10000,      /* timeout for user actions. will be considered if global timeout is not set */
+    actionTimeout: 8000,      /* timeout for user actions. will be considered if global timeout is not set */
   },
 
   /* Configure projects for cross browser testing */

@@ -17,7 +17,8 @@ test-results/
 blob-report/
 playwright/.cache/
 .trace/
-
+.tamash-playwright/
+.DS_Store
 
 # Videos, screenshots, traces (if stored separately)
 videos/
